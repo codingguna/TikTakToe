@@ -1,0 +1,22 @@
+# Add this line at the very top!
+require File.expand_path(File.join('packages', 'flutter_tools', 'bin', 'podhelper'), __dir__)
+
+platform :ios, '11.0'
+
+target 'Runner' do
+  use_frameworks!
+
+  # 👇 Required to install Flutter plugins
+  flutter_install_all_ios_pods File.dirname(File.realpath(__FILE__))
+
+  target 'RunnerTests' do
+    inherit! :search_paths
+  end
+end
+
+# 👇 Required post-install block
+post_install do |installer|
+  installer.pods_project.targets.each do |target|
+    flutter_additional_ios_build_settings(target)
+  end
+end
