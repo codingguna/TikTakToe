@@ -1,20 +1,18 @@
 import 'package:flutter/material.dart';
+import 'screens/home_screen.dart';
 
 void main() {
-  runApp(const MainApp());
+  runApp(TicTacToeApp());
 }
 
-class MainApp extends StatelessWidget {
-  const MainApp({super.key});
-
+class TicTacToeApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: Scaffold(
-        body: Center(
-          child: Text('Hello World!'),
-        ),
-      ),
+    return MaterialApp(
+      title: 'Tic Tac Toe',
+      theme: ThemeData(primarySwatch: Colors.deepPurple),
+      home: HomeScreen(),
+      debugShowCheckedModeBanner: false,
     );
   }
 }
